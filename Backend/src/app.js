@@ -26,4 +26,16 @@ const interviewRouter = require("./routes/interview.routes");
 app.use("/api/auth", authRouter);
 app.use("/api/interview", interviewRouter);
 
+
+app.use((err, req, res, next) => {
+  console.error("ERROR URL:", req.originalUrl);
+  console.error("METHOD:", req.method);
+  console.error("BODY:", req.body);
+  console.error("ERROR:", err.message);
+
+  res.status(500).json({
+    message: err.message,
+  });
+});
+
 module.exports = app;
