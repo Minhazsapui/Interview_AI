@@ -143,7 +143,8 @@ const Home = () => {
                   name="resume"
                   accept=".pdf,.docx"
                   onChange={(e) => {
-                    setSelectedFile(e.target.files[0]);
+                    const file = e.target.files[0];
+
                     if (file) {
                       setSelectedFile(file);
 
